@@ -1,0 +1,25 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "api/app.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/static/(.*)",
+        "dest": "/static/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "api/app.py"
+      }
+    ],
+    "env": {
+      "STRIPE_API_KEY": "sk_test_51MU9hXEf0VmxjSoD4YQ8vA6JccleWXGcWtdHO4IQIZuStqhwrzXwga4UjLIzgtqDjVQd4pvReJWplzJ4C3uhIkp2002cUXWDZG",
+      "MONGO_URI": "mongodb://talhashahid:TalhaShahid0306@ac-98ywvf8-shard-00-00.rj3hshg.mongodb.net:27017,ac-98ywvf8-shard-00-01.rj3hshg.mongodb.net:27017,ac-98ywvf8-shard-00-02.rj3hshg.mongodb.net:27017/?replicaSet=atlas-d28wbv-shard-0&ssl=true&authSource=admin&retryWrites=true&w=majority&appName=Cluster0",
+      "UPLOAD_FOLDER": "static/img"
+    }
+  }
+  

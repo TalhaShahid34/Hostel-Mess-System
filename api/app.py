@@ -6,11 +6,14 @@ from resources import routes
 import stripe
 import os
 from werkzeug.utils import secure_filename
-domain_url = "http://127.0.0.1:5000"
 
-stripe.api_key = "sk_test_51MU9hXEf0VmxjSoD4YQ8vA6JccleWXGcWtdHO4IQIZuStqhwrzXwga4UjLIzgtqDjVQd4pvReJWplzJ4C3uhIkp2002cUXWDZG"
+domain_url = "https://hostel-mess-main-sjif0mi9m-talha-shahids-projects-75fe2221.vercel.app/"
 
-dbUrl='mongodb://localhost:27017/MessSystem'
+# Use environment variable for Stripe API key
+stripe.api_key = os.getenv('STRIPE_API_KEY', "sk_test_51MU9hXEf0VmxjSoD4YQ8vA6JccleWXGcWtdHO4IQIZuStqhwrzXwga4UjLIzgtqDjVQd4pvReJWplzJ4C3uhIkp2002cUXWDZG")
+
+# Use environment variable for MongoDB URL
+dbUrl = os.getenv('MONGO_URI', 'mongodb://talhashahid:TalhaShahid0306@ac-98ywvf8-shard-00-00.rj3hshg.mongodb.net:27017,ac-98ywvf8-shard-00-01.rj3hshg.mongodb.net:27017,ac-98ywvf8-shard-00-02.rj3hshg.mongodb.net:27017/?replicaSet=atlas-d28wbv-shard-0&ssl=true&authSource=admin&retryWrites=true&w=majority&appName=Cluster0')
 
 app = Flask(__name__)
 app.config['MONGODB_SETTINGS'] = {
@@ -20,9 +23,11 @@ app = Flask(__name__, template_folder='templates', static_folder='static')
 api = Api(app)
 db.initialize_db(app)
 routes.initialize_routes(api)
-app.secret_key = "Mess_Management"
-UPLOAD_FOLDER = "C:\\Users\\HF\\Downloads\\Hostel_Mess-main\\Hostel_Mess-main\\static\\img"
+app.secret_key = os.getenv('SECRET_KEY', "Mess_Management")
+UPLOAD_FOLDER = os.getenv('UPLOAD_FOLDER', "static/img")
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+
 
 
 @app.route('/')
