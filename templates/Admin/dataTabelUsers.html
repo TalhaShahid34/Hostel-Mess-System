@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+    <style>
+        body {
+            background-color: #9bbae8;
+
+        }
+
+        div {
+
+            align-items: center;
+            margin: 30px auto;
+        }
+
+        table {
+            background-color: #4f91f3;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        button {
+            border-radius: 4px;
+            color: black;
+            background-color: bisque;
+            padding: 4px 4px;
+            margin-left: 23px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Users Information</h1>
+
+    <button id="mybutton">Back</button>
+    <div>
+
+        <table id="show" border="2">
+        </table>
+    </div>
+
+
+    <script>
+        document.getElementById('mybutton').addEventListener('click', () => {
+            window.location = "/index";
+        })
+        var myData
+        $(document).ready(function () {
+
+            //doStuff
+            console.log("hello")
+            $.ajax({
+                type: "GET",
+                url: "/api/User",
+                success: function (result) {
+                    console.log(myData)
+                    myData=result;
+                    console.log(myData);
+                    for (let index = 0; index < result.length; index++) {
+                        if (myData[index]['email'] === "bsef20m028@pucit.edu.pk") {
+                            myData.splice(index,1)
+                            //console.log(myData[index]['email']);
+                            break;  
+                        }
+                    }
+                    console.log(myData);
+                    if (myData != null || myData != "") {
+                        table = $('#show').DataTable({
+                            data: myData, destroy: true,
+                            columns: [
+                                { title: 'Full Name', data: 'fullName' },
+                                { title: 'Email', data: 'email' },
+                                { title: 'Phone', data: 'phone' },
+                                { title: 'CNIC', data: 'cnic' },
+                                { title: 'Payment Status', data: 'paymentStatus' },
+                            ]
+                        });
+                    }
+                }
+            });
+        });
+
+
+    </script>
+
+
+</body>
+
+</html>

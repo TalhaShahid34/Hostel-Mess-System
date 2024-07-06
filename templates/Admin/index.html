@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="/static/Admin/style.css">
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+		integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+	<title>Mess Management</title>
+	<style>
+		#loading-spinner {
+			display: none;
+			position: fixed;
+			top: 77%;
+			left: 54%;
+			transform: translate(-50%, -50%);
+		}
+
+		.spinner {
+			border: 4px solid #9d9da1;
+			border-top: 4px solid #003cff;
+			border-radius: 50%;
+			width: 60px;
+			height: 60px;
+			animation: spin 1s linear infinite;
+		}
+
+		@keyframes spin {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+	</style>
+</head>
+
+<body>
+
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx bxs-smile'></i>
+			<span class="text">Mess Admin</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="/index">
+					<i class='bx bxs-dashboard'></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li>
+
+				<a href="/menu">
+					<i class='bx bx-dish'></i>
+					<span class="text">Menu</span>
+				</a>
+			</li>
+
+			<!-- <li>
+				<a href="#">
+					<i class='bx bx-user-plus' ></i>
+					<span class="text">Add Student</span>
+				</a>
+			</li> -->
+			<li>
+				<a href="/students">
+					<i class='bx bxs-group'></i>
+					<span class="text">Students
+
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="/todayAttendees">
+					<i class='bx bxs-group'></i>
+					<span class="text">Today Attendees
+
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="/dataTable-users">
+					<i class='bx bxs-group'></i>
+					<span class="text">User Data Table
+
+					</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="side-menu">
+			<li>
+				<a href="/settings">
+					<i class='bx bxs-cog'></i>
+					<span class="text">Settings</span>
+				</a>
+			</li>
+			<li>
+				<a href="/logout" class="logout">
+					<i class='bx bxs-log-out-circle'></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu'></i>
+			<!-- <a href="#" class="nav-link">Categories</a> -->
+			<form action="#">
+				<div class="form-input">
+					<!-- <input type="search" placeholder="Search..."> -->
+					<!-- <button type="submit" class="search-btn"><i class='bx bx-search'></i></button> -->
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<!-- <a href="#" class="notification"> -->
+			<!-- <i class='bx bxs-bell'></i> -->
+			<!-- <span class="num">8</span> -->
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>Dashboard</h1>
+					<ul class="breadcrumb">
+						<li>
+							<a href="#">Dashboard</a>
+						</li>
+						<li><i class='bx bx-chevron-right'></i></li>
+						<li>
+							<a class="active" href="#">Home</a>
+						</li>
+					</ul>
+				</div>
+				<!-- <a href="#" class="btn-download">
+					<i class='bx bxs-cloud-download' ></i>
+					<span class="text">Download PDF</span>
+				</a> -->
+			</div>
+
+			<ul class="box-info">
+				<li>
+					<i class='bx bxs-calendar-check'></i>
+					<span class="text">
+						<h3 id="total-student"></h3>
+						<p>Today's Attendees</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bxs-group'></i>
+					<span class="text">
+						<h3 id="totalUsers"></h3>
+						<p>Total Students</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bxs-dollar-circle'></i>
+					<span class="text">
+						<h3>Rs.0/-</h3>
+						<p>Month's Expenditure</p>
+					</span>
+				</li>
+			</ul>
+
+
+			<div class="table-data">
+
+				<div class="todo">
+					<div class="head">
+						<h3>Today's Attendees</h3>
+						<!-- <i class='bx bx-plus' ></i> -->
+						<!-- <i class='bx bx-filter' ></i> -->
+						<a href="students.html">
+
+
+							<a href="/todayAttendees" class="button button1">View All</a>
+
+
+						</a>
+
+					</div>
+					<ul class="todo-list" id="exampleid">
+
+						<li class="completed">
+							<p></p>
+							<!-- <i class='bx bx-dots-vertical-rounded' ></i> -->
+						</li>
+
+					</ul>
+					<div id="loading-spinner">
+						<div class="spinner"></div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+
+
+	<script src="static/Admin/script.js">
+	</script>
+	<script>
+
+		// const switchMode = document.getElementById('switch-mode');
+		console.log(switchMode)
+		document.getElementById("loading-spinner").style.display = "block";
+
+		let result;
+		let count = 0;
+		let totalNumbers = document.getElementById('total-student')
+		const formatedDate = new Date().getDate().toString();
+		// document.getElementById('date').innerHTML = new Date().toLocaleString()
+		$(document).ready(function () {
+			let userList;
+			$.ajax({
+				url: "/api/User", // url where to submit the request
+				type: "GET", // type of action POST || GET
+				dataType: 'json',
+				contentType: "application/json; charset=utf-8",
+
+				success: function (response) {
+					document.getElementById("loading-spinner").style.display = "none";
+
+					userList = response;
+					console.log(userList)
+					document.getElementById("totalUsers").innerText = userList.length - 1
+
+				},
+				error: function (xhr, resp, text) {
+					console.log(xhr, resp, text);
+					$('body').append('<h2>Error Occured</h2>')
+				}
+			})
+
+
+			// let menuTitle =new Array(7);
+
+			// console.log(menuTitle);
+			$.ajax({
+				url: `/api/attendence/${formatedDate}/lunch`, // url where to submit the request
+				type: "GET", // type of action POST || GET
+				dataType: 'json',
+				contentType: "application/json; charset=utf-8",
+
+				success: function (response) {
+
+
+
+					count += (response['LunchList'].length - response['LunchList'].filter((x) => x == "").length + response['DinnerList'].length - response['DinnerList'].filter((x) => x == "").length);
+					// for (let i = 0; i < userList.length; i++) {
+					let dinnerStu;
+					let lunchList = response['LunchList'];
+					let dinnerList = response['DinnerList'];
+					// let loopFlag = lunchList.length < dinnerList.length ? dinnerList.length : lunchList.length;
+					let clone = document.getElementsByClassName("completed")[0].cloneNode()
+					let para = document.getElementsByClassName("completed")[0].getElementsByTagName('p')[0].cloneNode()
+					console.log(lunchList);
+					console.log(dinnerList);
+					for (let index = 0; index < userList.length; index++) {
+						let isAttendeeStu = false;
+						let curEmail = (userList[index])['email'];
+						for (let j = 0; j < lunchList.length; j++) {
+
+							if (curEmail == lunchList[j] && curEmail != "admin@gmail.com") {
+								lunchStu = userList[index]['fullName'];
+								isAttendeeStu = true;
+								break;
+							}
+						}
+						for (let j = 0; j < dinnerList.length; j++) {
+							if (curEmail == dinnerList[j] && curEmail != "admin@gmail.com") {
+								dinnerStu = userList[index]['fullName'];
+								isAttendeeStu = true;
+								break;
+							}
+						}
+						// console.log("cE : " + curEmail)
+						// console.log("dS : " + dinnerStu)
+						// console.log("ls: " + lunchStu)
+
+						// 	if (dinnerList[j] == undefined) {
+						// 		dinnerStu = "";
+						// 	}
+						// 	else if (lunchList[j] == undefined) {
+						// 		lunchStu = "";
+						// 	}
+						if (isAttendeeStu) {
+							// clone.st
+							document.getElementsByClassName("completed")[0].style.display = "none";
+							let tempClone = clone.cloneNode();
+							let tempPara = para.cloneNode()
+							console.log(tempPara)
+							tempPara.innerText = userList[index]['fullName']
+
+
+							tempClone.append(tempPara)
+							console.log(tempClone)
+							$('#exampleid').append(tempClone);
+
+						}
+					}
+
+					totalNumbers.innerHTML = count;
+				},
+
+
+
+
+
+				error: function (xhr, resp, text) {
+					console.log(xhr, resp, text);
+					$('body').append('<h2>Error Occured</h2>')
+				}
+			})
+
+		});
+	</script>
+</body>
+
+</html>

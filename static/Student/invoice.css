@@ -1,0 +1,240 @@
+/* content editable */
+
+.text {
+    border-radius: 0.25em;
+    min-width: 1em;
+    outline: 0;
+}
+
+.text {
+    cursor:auto;
+}
+
+.text :hover,
+.text :focus,
+td:hover .text ,
+img.hover {
+    background: rgb(125, 159, 192);
+    box-shadow: 0 0 1em 0.5em #DEF;
+}
+
+span .text  {
+    display: inline-block;
+}
+
+/* heading */
+
+.invoice h1 {
+    font: bold 100% sans-serif;
+    letter-spacing: 0.5em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* table */
+
+.invoice table {
+    font-size: 75%;
+    table-layout: fixed;
+    width: 100%;
+
+}
+
+.invoice table {
+    border-collapse: separate;
+    border-spacing: 2px;
+
+}
+
+.invoice th,
+td {
+    border-width: 1px;
+    padding: 0.5em;
+    position: relative;
+    text-align: left;
+    
+}
+
+.invoice th,
+td {
+    overflow:hidden ;
+    border-radius: 0.25em;
+    border-style: solid;
+}
+
+.invoice th {
+    background: #EEE;
+    border-color: #BBB;
+}
+
+.invoice td {
+    border-color: #DDD;
+}
+
+/* page */
+
+
+/* header */
+
+.invoice header {
+    margin: 0 0 3em;
+}
+
+.invoice header:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.invoice header h1 {
+    background: #000;
+    border-radius: 0.25em;
+    color: #FFF;
+    margin: 0 0 1em;
+    padding: 0.5em 0;
+}
+
+
+.invoice header address p {
+    max-width: 100%;
+    font-size: 75%;
+    font-style: normal;
+    line-height: 1.25;
+    margin: 0 1em 1em 0;
+
+    margin: 0 0 0.25em;
+}
+
+.invoice header address span {
+    float: left;
+}
+
+.invoice header address img {
+    max-height: 100px;
+    width: 200px;
+    border-radius: 5px;
+    float: right;
+    text-align: end;
+    display: block;
+}
+
+/* article */
+
+.invoice article,
+article address,
+table.meta,
+table.inventory {
+    margin: 0 0 3em;
+}
+
+.invoice article:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.invoice article h1 {
+    clip: rect(0 0 0 0);
+    position: absolute;
+}
+
+.invoice article address {
+    float: left;
+    font-size: 125%;
+    font-weight: bold;
+}
+
+/* table meta & balance */
+
+.invoice table.meta,
+table.balance {
+    float: right;
+    width: 36%;
+}
+
+.invoice table.meta:after,
+table.balance:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+/* table meta */
+
+.invoice table.meta th {
+    width: 40%;
+}
+
+.invoice table.meta td {
+    width: 60%;
+}
+
+/* table items */
+
+.invoice table.inventory {
+    clear: both;
+    width: 100%;
+}
+
+.invoice table.inventory th {
+    font-weight: bold;
+    text-align: center;
+}
+
+.invoice table.inventory td:nth-child(1) {
+    width: 26%;
+}
+
+.invoice table.inventory td:nth-child(2) {
+    width: 38%;
+}
+
+.invoice table.inventory td:nth-child(3) {
+    text-align: right;
+    width: 12%;
+}
+
+.invoice table.inventory td:nth-child(4) {
+    text-align: right;
+    width: 12%;
+}
+
+.invoice table.inventory td:nth-child(5) {
+    text-align: right;
+    width: 12%;
+}
+
+/* table balance */
+
+.invoice table.balance th,
+table.balance td {
+    width: 50%;
+}
+
+.invoice table.balance td {
+    text-align: right;
+}
+
+/* aside */
+
+.invoice aside h1 {
+    border: none;
+    border-width: 0 0 1px;
+    margin: 0 0 1em;
+}
+
+.invoice aside h1 {
+    border-color: #999;
+    border-bottom-style: solid;
+}
+
+
+
+
+
+
+
+
+@page {
+    margin: 0;
+}

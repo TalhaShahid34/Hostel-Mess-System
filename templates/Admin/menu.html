@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="/static/Admin/style.css">
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+		integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+	<title>Mess Management</title>
+</head>
+
+
+
+<body>
+	
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx bxs-smile'></i>
+			<span class="text">Mess Admin</span>
+		</a>
+		<ul class="side-menu top">
+			<li >
+				<a href="/index">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li class="active">
+				
+				<a href="/menu">
+					<i class='bx bx-dish' ></i>
+					<span class="text">Menu</span>
+				</a>
+			</li>
+			
+			<!-- <li>
+				<a href="#">
+					<i class='bx bx-user-plus' ></i>
+					<span class="text">Add Student</span>
+				</a>
+			</li> -->
+			<li>
+				<a href="/students">
+					<i class='bx bxs-group' ></i>
+					<span class="text">Users
+
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="/todayAttendees">
+					<i class='bx bxs-group' ></i>
+					<span class="text">Today Attendees
+						
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="/dataTable-users">
+					<i class='bx bxs-group'></i>
+					<span class="text">User Data Table
+
+					</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="side-menu">
+			<li>
+				<a href="/settings">
+					<i class='bx bxs-cog' ></i>
+					<span class="text">Settings</span>
+				</a>
+			</li>
+			<li>
+				<a href="/logout" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu'></i>
+			<!-- <a href="#" class="nav-link">Categories</a> -->
+			<form action="#">
+				<div class="form-input">
+					<!-- <input type="search" placeholder="Search..."> -->
+					<!-- <button type="submit" class="search-btn"><i class='bx bx-search'></i></button> -->
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<!-- <a href="#" class="notification"> -->
+				<!-- <i class='bx bxs-bell'></i> -->
+				<!-- <span class="num">8</span> -->
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>Dashboard</h1>
+					<ul class="breadcrumb">
+						<li>
+							<a href="#">Dashboard</a>
+						</li>
+						<li><i class='bx bx-chevron-right'></i></li>
+						<li>
+							<a class="active" href="#">Menu</a>
+						</li>
+					</ul>
+				</div>
+				<!-- <a href="#" class="btn-download">
+					<i class='bx bxs-cloud-download' ></i>
+					<span class="text">Download PDF</span>
+				</a> -->
+			</div>
+
+
+			<ul class="box-info">
+				<li>
+					<i class='bx bxs-calendar-check'></i>
+					<span class="text">
+						<h3>1PM - 2:30PM</h3>
+						<p>Lunch Timing</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bxs-calendar-check'></i>
+					<span class="text">
+						<h3>7PM - 9PM</h3>
+						<p>Dinner Timing</p>
+					</span>
+				</li>
+
+				<li>
+					<i class='bx bxs-dollar-circle'></i>
+					<span class="text">
+						<h3>Rs.0/-</h3>
+						<p>Month's Expenditure</p>
+					</span>
+				</li>
+			</ul>
+
+
+
+			<div class="table-data">
+				<div class="order">
+					<div class="head">
+						<h3>Menu</h3>
+						<a href="/createPoll">
+							<span class="status completed">Create Poll</span>
+						</a>
+						<!-- <i class='bx bx-search' ></i> -->
+						<!-- <i class='bx bx-filter' ></i> -->
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<th>Day</th>
+
+								<th>Lunch</th>
+								<th>Lunch Price</th>
+								<th>Dinner</th>
+
+								<th>Dinner Price</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+
+									<p>Monday</p>
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>
+
+									<p>Tuseday</p>
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>
+
+									<p>Wednesday</p>
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>
+
+									<p>Thursday</p>
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>
+
+									<p>Friday</p>
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>
+
+									<p>Saturday</p>
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>
+
+									<p>Sunday</p>
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+	<script src="/static/Admin/script.js"></script>
+	<script>
+		$(document).ready(function () {
+			// let menuTitle =new Array(7);
+
+			// console.log(menuTitle);
+			$.ajax({
+				url: "/api/menu", // url where to submit the request
+				type: "GET", // type of action POST || GET
+				dataType: 'json',
+				contentType: "application/json; charset=utf-8",
+
+				success: function (result) {
+
+					for (let index = 1; index <= result.length; index++) {
+						document.getElementsByTagName('table')[0].getElementsByTagName('tr')[index].getElementsByTagName('td')[1].innerHTML = result[index - 1]['lunch'];
+						document.getElementsByTagName('table')[0].getElementsByTagName('tr')[index].getElementsByTagName('td')[2].innerHTML = result[index - 1]['lunchPrice'];
+						document.getElementsByTagName('table')[0].getElementsByTagName('tr')[index].getElementsByTagName('td')[3].innerHTML = result[index - 1]['dinner'];
+						document.getElementsByTagName('table')[0].getElementsByTagName('tr')[index].getElementsByTagName('td')[4].innerHTML = result[index - 1]['dinnerPrice'];
+					}
+
+				},
+				error: function (xhr, resp, text) {
+					console.log(xhr, resp, text);
+					// $('body').append('<h2>Error Occured</h2>')s
+				}
+			})
+
+		});
+	</script>
+
+</body>
+
+</html>

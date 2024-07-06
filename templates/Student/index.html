@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="/static/Student/style.css">
+	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="Menustyle.css"> -->
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+		integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+	<title>Mess Management</title>
+</head>
+
+<body>
+
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx bxs-smile'></i>
+			<span class="text">Mess Student</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="/">
+					<i class='bx bxs-dashboard'></i>
+					<span class="text">Home</span>
+				</a>
+			</li>
+			<li>
+
+				<a href="/menu">
+					<i class='bx bx-dish'></i>
+					<span class="text">Menu</span>
+				</a>
+			</li>
+			<li>
+				<a href="/analytics">
+					<i class='bx bxs-doughnut-chart'></i>
+					<span class="text">Analytics</span>
+				</a>
+			</li>
+			<li>
+				<a href="/challan">
+					<i class='bx bxs-doughnut-chart'></i>
+					<span class="text">See challan</span>
+				</a>
+			</li>
+			<!-- <li>
+				<a href="#">
+					<i class='bx bx-user-plus' ></i>
+					<span class="text">Add Student</span>
+				</a>
+			</li> -->
+
+
+		</ul>
+		<ul class="side-menu">
+
+			<li>
+				<a href="/logout" class="logout">
+					<i class='bx bxs-log-out-circle'></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu'></i>
+			<!-- <a href="#" class="nav-link">Categories</a> -->
+			<form action="#">
+				<div class="form-input">
+					<!-- <input type="search" placeholder="Search..."> -->
+					<!-- <button type="submit" class="search-btn"><i class='bx bx-search'></i></button> -->
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<!-- <a href="#" class="notification">
+				<i class='bx bxs-bell'></i>
+				<span class="num">8</span>
+			</a> -->
+			<a href="/profile" class="profile">
+				<img src="static/img/people.png">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<section style="margin: 90px;">
+			<div class="animate">
+				<p class="typed">Welcome To FCIT Mess! Enjoy your Happy Meal</p>
+			</div>
+			<div class="subHeading" style="padding: 10px 0px 10px 0px;" >
+				<h3 >&mdash;Today Items &mdash; </h3>
+			</div>
+			<div class="item-wrap" style="margin-top: 60px;">
+				<div class="food-items">
+					<img id="lunch-img" src="img/Spaghetti.jpeg">
+					<div class="details">
+						<div class="details-sub">
+							<h5 id="lunch-title">Basil Pesto Spaghetti</h5>
+						</div>
+						<div class="btn">
+							<button>Lunch</button>
+							<button id="lunch-price">123</button>
+						</div>
+					</div>
+				</div>
+				<div class="food-items">
+					<img id="dinner-img" src="img/chicken.jpeg">
+					<div class="details">
+						<div class="details-sub">
+							<h5 id="dinner-title">Honey Garlic Chicken</h5>
+						</div>
+						<div class="btn">
+							<button>Dinner</button>
+							<button id="dinner-price">123</button>
+						</div>
+					</div>
+				</div>
+				</div>
+			<!-- <div class="item-wrap">
+
+
+				<div class="card" style="width: 17rem; margin-left: 70px;border: none;">
+					<h3 style="text-align: center;">Lunch</h3>
+					<img  src="./img/biryani.jpg" style="border-radius: 20px;" class="card-img-top"
+						alt="...">
+					<div style="display: flex;justify-content: space-evenly;" class="card-body">
+						<h5 class="card-title" >Biryani</h5>
+						<h5 class="price" >30/-</h5>
+					</div>
+				</div>
+				<div class="card" style="width: 17rem; margin-left: 70px;border: none;">
+					<h3 style="text-align: center;">Dinner</h3>
+					<img  src="./img/biryani3.jpg" style="border-radius: 20px;" class="card-img-top"
+						alt="...">
+					<div style="display: flex;justify-content: space-evenly;" class="card-body">
+						<h5 class="card-title" >Dal Roti</h5>
+						<h5 class="price" >30/-</h5>
+					</div>
+				</div>
+			</div> -->
+			<div class="container" style="margin-top: 50px;">
+				<h3>
+					Hurry Up! Reserve your Seat and Enjoy the Meal
+				</h3>
+				<!-- <p id="email" style="display: none;">{{email}}</p> -->
+				
+				<form>
+					<div class="mb-3">
+						<label class="form-label">Select time</label>
+						<select id="selected-day" class="form-select" aria-label="Default select example" required>
+							<option selected>Open this select menu</option>
+							<option value="2">lunch</option>
+							<option value="3">dinner</option>
+						</select>
+					</div>
+					<!-- <div class="mb-3">
+						<label for="exampleInputEmail1" class="form-label">Enter the number of resrevations</label>
+						<input type="number" class="form-control" id="numberOfReservation" aria-describedby="emailHelp">
+					</div> -->
+
+
+					<input id="reserve-btn" class="button" style="background-color: #3C91E6;
+					color: white;margin-top: 30px;padding:15px 0px 15px 0px;
+						border: 2px solid black;" value="Reserve">
+
+				</form>
+			</div>
+
+		</section>
+		
+		
+		<!-- MAIN -->
+		<p  id="current-user">
+					{{email}}
+		</p>
+	</section>
+	<!-- CONTENT -->
+
+
+	<script src="static/Student/script.js"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script> -->
+	<script>
+		var i = 0;
+		var txt = 'Welcome To Mess'; /* The text */
+		var speed = 50; /* The speed/duration of the effect in milliseconds */
+
+		function typeWriter() {
+			if (i < txt.length) {
+				document.getElementById("demo").innerHTML += txt.charAt(i);
+				i++;
+				setTimeout(typeWriter, speed);
+			}
+		}
+
+		$(document).ready(function () {
+
+			const date = new Date();
+			const day = date.getDay();
+			const currentDate = date.toLocaleDateString();
+			const formatedDate = new Date().getDate().toString();
+			console.log(formatedDate)
+			console.log(`Today is: ${currentDate}`);
+
+			const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+			console.log(`Today is: ${daysOfWeek[day]}`);
+			let currentuser = document.getElementById('current-user').innerText
+			document.getElementById('current-user').innerHTML=''
+			let text;
+			let data = {};
+			$.ajax({
+				url: `/api/updateMenu/${daysOfWeek[day]}`, // url where to submit the request
+				type: "GET", // type of action POST || GET
+				dataType: 'json',
+				contentType: "application/json; charset=utf-8",
+
+				success: function (result) {
+					console.log(currentuser)
+					let url = "../static/img/";
+					data = { "Date": formatedDate, "LunchPrice": result["lunchPrice"], "DinnerPrice": result["dinnerPrice"] }
+
+					document.getElementById("lunch-title").innerHTML = result["lunch"];
+					document.getElementById("dinner-title").innerHTML = result["dinner"];
+					document.getElementById("lunch-price").innerHTML = "Rs." + result["lunchPrice"] + "/-";
+					document.getElementById("dinner-price").innerHTML = "Rs." + result["dinnerPrice"] + "/-";
+					document.getElementById("dinner-img").src = url + result["dinnerPic"];
+					document.getElementById("lunch-img").src = url + result["lunchPic"];
+
+				},
+				error: function (xhr, resp, text) {
+					console.log(xhr, resp, text);
+				}
+
+
+				// you can see the result from the console
+				// tab of the developer tools
+
+			});
+
+			$("#reserve-btn").on('click', function () {
+				let selectedDay = document.getElementById('selected-day');
+				// let numOfReservations = document.getElementById('numberOfReservation').value;
+				var value = selectedDay.value;
+				if (selectedDay.selectedIndex!=1 && selectedDay.selectedIndex!=2){
+					alert("Please selesct a value first!")
+					window.location='/'
+				}
+				text = selectedDay.options[selectedDay.selectedIndex].text;
+				
+				
+				let newDate = formatedDate.toString()
+
+				newData = {}
+				newData["email"] = currentuser;
+				newData["numberOfAttendences"] = "1";
+				// console.log(newData)
+
+				// console.log(text);
+				if (text == "lunch") {
+					data["LunchList"] = [currentuser]
+					data["DinnerList"] = []
+					newData["billAmount"] = data["LunchPrice"]
+				}
+				else {
+					newData["billAmount"] = data["DinnerPrice"]
+					data["DinnerList"] = [currentuser]
+					data["LunchList"] = []
+
+				}
+				data = JSON.stringify(data)
+				newData = JSON.stringify(newData)
+				console.log(newData)
+				$.ajax({
+					url: `/api/attendence/${formatedDate}/${text}`, // url where to submit the request
+					type: "PUT",
+					data: data, // type of action POST || GET
+					dataType: 'json',
+					contentType: "application/json; charset=utf-8",
+
+					success: function (result) {
+						// console.log("Returned By Server")
+						// data = JSON.stringify(data)
+						// console.log(data)
+
+
+						// print(email)
+						$.ajax({
+							url: `/api/updateBill/${currentuser}`, // url where to submit the request
+							type: "PUT",
+							data: newData, // type of action POST || GET
+							dataType: 'json',
+							contentType: "application/json; charset=utf-8",
+
+							success: function (result) {
+								console.log("At last")
+								console.log(result);
+								alert("Successfully reserved!")
+								window.location.reload()
+								// you can see the result from the console
+								// tab of the developer tools
+							},
+							error: function (xhr, resp, text) {
+								// console.log("error")
+								console.log(xhr, resp, text);
+
+							}
+						});
+
+						// you can see the result from the console
+						// tab of the developer tools
+					},
+					error: function (xhr, resp, text) {
+						console.log(xhr, resp, text);
+						alert("Max limit for reservations reached!")
+						window.location.reload()
+
+					}
+				})
+
+
+				// $.ajax(
+				// 	{
+				// 		url: '/api/attendenced', // url where to submit the request
+				// 		type: "POST", // type of action POST || GET
+				// 		data: JSON.stringify(data), // post data || get data
+				// 		dataType: 'json',
+				// 		contentType: "application/json; charset=utf-8",
+
+
+				// 		success: function (result) {
+				// 			console.log(result);
+				// 			// you can see the result from the console
+				// 			// tab of the developer tools
+				// 		},
+				// 		error: function (xhr, resp, text) {
+				// 			console.log(xhr, resp, text);
+				// 		}
+				// 	});
+			});
+
+
+		});
+
+
+
+	</script>
+</body>
+
+</html>

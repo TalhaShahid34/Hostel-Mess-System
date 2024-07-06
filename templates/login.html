@@ -1,0 +1,188 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</head>
+    <body onload="javascript:checkUrl()">
+        <section class="container login-section">
+            <div class="login-container">
+                <div class="container logo-div">
+                    <img src="../static/images/wow-logo-white.png" alt="">
+                </div>
+                <div class="container login-form-div">
+                    <form class="login-form" id="form" method="post">
+                        <div class="container login-form-container">
+                            <input class="input-tag" type="email" placeholder="email" name="email" required>
+                            <br>
+                            <input class="input-tag" type="password" placeholder="password" name="password" required>
+                            <br>
+                            <input class="button input-button" type="submit" value="Login" id="submit">
+                            <p id="Status"></p>
+                    </form>
+                </div>
+                <div class="container signup-option">
+                    <a href='register' class="button signup-button">Create new account</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+            function checkUrl()
+                {
+                    if (window.location.href.indexOf('?email=') > 0) {
+                        document.getElementById("Status").innerText="User doesn't exists"
+                        console.log("User does't exist")
+            }
+                }
+                window.onload = checkUrl();
+            $(document).ready(function(){
+                // click on button submit
+                $("#submit").on('click', function(e){
+                    // send ajax
+                    var formdata = $("#form").serializeArray();
+                    var data = {};
+                    $(formdata ).each(function(index, obj){
+                        data[obj.name] = obj.value;
+                    });
+                    var strname=data['name'];
+                    var strpassword=data['password']; 
+                    console.log(strname)
+                    data=JSON.stringify(data)
+                    console.log(data)
+                    $.ajax({
+                        url: '/api/Login', // url where to submit the request
+                        type : "POST", // type of action POST || GET
+                        data : data, // post data || get data
+                        dataType : 'json',
+                        contentType: "application/json; charset=utf-8",
+                        success : function(result) {
+                            // you can see the result from the console
+                            // tab of the developer tools
+                            console.log(result);
+                            if(result)
+                            {
+                                window.location = '/'
+                                
+                            }
+                        },
+                        error: function(xhr, resp, text) {
+                            console.log("uytrewq")
+                            console.log(xhr, resp, text);
+                        }
+                    })
+                });
+            });
+        </script>
+    </body>
+</html>          -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Form</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="/static/login.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 d-none d-md-block image-container"></div>
+
+			<div class="col-lg-6 col-md-6 form-container">
+				<div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box text-center">
+
+					<div class="heading mb-4">
+						<h4>Login</h4>
+					</div>
+					<form action="/login" method="post" id="form">
+						{%if error %}
+						<div class="alert alert-danger">{{error}}</div>
+						{%endif%}
+						<div class="form-input">
+							<span><i class="fa fa-envelope"></i></span>
+							<input type="email" name="email" placeholder="Email Address" required>
+						</div>
+						<div class="form-input">
+							<span><i class="fa fa-lock"></i></span>
+							<input type="password" name="password" placeholder="Password" required>
+						</div>
+						<div class="row mb-3">
+							<div class="col-6 d-flex">
+								<div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input" name="cb1" id="cb1">
+									<label class="custom-control-label text-white" for="cb1">Remember me</label>
+								</div>
+							</div>
+							<!-- <div class="col-6 text-right">
+								<a href="forget.html" class="forget-link">Forget Password</a>
+							</div> -->
+						</div>
+						<div class="text-left mb-3">
+							<button type="submit" id="submit" class="btn">Login</button>
+						</div>
+						<div style="color: rgb(230, 229, 229)">Don't have an account?  
+							<a href="/register" class="register-link">Register here</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- <script>
+		function checkUrl()
+			{
+				if (window.location.href.indexOf('?email=') > 0) {
+					document.getElementById("Status").innerText="User doesn't exists"
+					console.log("User does't exist")
+		}
+			}
+			window.onload = checkUrl();
+		$(document).ready(function(){
+			// click on button submit
+			$("#submit").on('click', function(e){
+				// send ajax
+				var formdata = $("#form").serializeArray();
+				var data = {};
+				$(formdata ).each(function(index, obj){
+					data[obj.name] = obj.value;
+				});
+				// var strname=data['name'];
+				// var strpassword=data['password']; 
+				// console.log(strname)
+				console.log(data)
+				data=JSON.stringify(data)
+				$.ajax({
+					url: '/api/Login', // url where to submit the request
+					type : "POST", // type of action POST || GET
+					data : data, // post data || get data
+					dataType : 'json',
+					contentType: "application/json; charset=utf-8",
+					success : function(result) {
+						// you can see the result from the console
+						// tab of the developer tools
+						console.log(result);
+						if(result)
+						{
+							window.location="/"
+						}
+					},
+					error: function(xhr, resp, text) {
+                        alert("User not found!");
+						console.log(xhr, resp, text);
+					}
+				})
+			});
+		});
+	</script> -->
+</body>
+</html>

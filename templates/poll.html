@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!-- Created By MultiWebPress - www.multiwebpress.com -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poll</title>
+  <link rel="stylesheet" href="/static/poll.css">
+  <link rel="stylesheet" href="/static/Student/style.css">
+
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <style>
+    .percent {
+      margin-left: 380px;
+    }
+  </style>
+</head>
+
+
+<body>
+  <!-- SIDEBAR -->
+  <section id="sidebar">
+    <a href="#" class="brand">
+      <i class='bx bxs-smile'></i>
+      <span class="text">Mess Student</span>
+    </a>
+    <ul class="side-menu top">
+      <li>
+        <a href="/">
+          <i class='bx bxs-dashboard'></i>
+          <span class="text">Home</span>
+        </a>
+      </li>
+      <li>
+
+        <a href="/menu">
+          <i class='bx bx-dish'></i>
+          <span class="text">Menu</span>
+        </a>
+      </li>
+      <li>
+        <a href="/analytics">
+          <i class='bx bxs-doughnut-chart'></i>
+          <span class="text">Analytics</span>
+        </a>
+      </li>
+      <li>
+        <a href="/challan">
+          <i class='bx bxs-doughnut-chart'></i>
+          <span class="text">See challan</span>
+        </a>
+      </li>
+      <li class="active">
+        <a href="#">
+          <i class='bx bxs-doughnut-chart'></i>
+          <span class="text">Mess Poll</span>
+        </a>
+      </li>
+      <!-- <li>
+      <a href="#">
+        <i class='bx bx-user-plus' ></i>
+        <span class="text">Add Student</span>
+      </a>
+    </li> -->
+
+
+    </ul>
+    <ul class="side-menu">
+
+      <li>
+        <a href="/logout" class="logout">
+          <i class='bx bxs-log-out-circle'></i>
+          <span class="text">Logout</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+  <!-- SIDEBAR -->
+
+  <div class="wrapper">
+    <header>Which one increases your apetite? <br></header>
+    <div class="poll-area">
+      <input type="checkbox" name="poll" id="opt-1">
+      <input type="checkbox" name="poll" id="opt-2">
+      <input type="checkbox" name="poll" id="opt-3">
+      <input type="checkbox" name="poll" id="opt-4">
+      <label for="opt-1" class="opt-1">
+        <div class="row">
+          <div class="column">
+            <span class="circle"></span>
+            <span class="text" id="food1"></span>
+            <span class="percent" id="count1"></span>
+          </div>
+        </div>
+        <div class="progress" id="pstyle1" style='--w:50;'></div>
+      </label>
+      <label for="opt-2" class="opt-2">
+        <div class="row">
+          <div class="column">
+            <span class="circle"></span>
+            <span class="text" id="food2"></span>
+            <span class="percent" id="count2"></span>
+          </div>
+        </div>
+        <div class="progress" id="pstyle2" style='--w:80;'></div>
+      </label>
+
+
+    </div>
+  </div>
+
+
+  <script>
+    let count = []
+    let count1 = 0;
+    let count2 = 0;
+    const options = document.querySelectorAll("label");
+    options[0].addEventListener("click", () => {
+      let food1 = options[0].getElementsByTagName('span')[1].getElementsByTagName('span')[0].innerHTML;
+      let food2 = options[1].getElementsByTagName('span')[1].getElementsByTagName('span')[0].innerHTML;
+      console.log(options[0].getElementsByTagName('span')[1].getElementsByTagName('span')[0].innerHTML);
+      console.log(options[0].getElementsByTagName('span')[3].getElementsByTagName('span')[0].innerHTML);
+      let count1 = (options[0].getElementsByTagName('span')[3].getElementsByTagName('span')[0].innerHTML);
+      let count2 = (options[1].getElementsByTagName('span')[3].getElementsByTagName('span')[0].innerHTML);
+
+      count1 = parseInt(count1) + 1;
+      count2 = parseInt(count2);
+      (options[0].getElementsByTagName('span')[3].getElementsByTagName('span')[0].innerHTML = count1);
+      var progressBar1 = document.getElementById("pstyle1");
+      progressBar1.style.setProperty('--w', count1);
+      var progressBar2 = document.getElementById("pstyle2");
+      progressBar2.style.setProperty('--w', count2);
+      let data = { "food1": food1, "count1": count1, "food2": food2, "count2": count2 };
+      data = JSON.stringify(data)
+
+      $.ajax({
+        url: `/api/pollDataInfo/${food1}`, // url where to submit the request
+        type: "PUT", // type of action POST || GET
+        data: data, // post data || get data
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+
+
+        success: function (result) {
+          console.log(result);
+          window.location='/';
+          // tab of the developer tools
+        },
+        error: function (xhr, resp, text) {
+          console.log(xhr, resp, text);
+        }
+      })
+    })
+    options[1].addEventListener("click", () => {
+      console.log(options[1].getElementsByTagName('span')[1].getElementsByTagName('span')[0].innerHTML);
+      console.log(options[1].getElementsByTagName('span')[3].getElementsByTagName('span')[0].innerHTML);
+      let food1 = options[0].getElementsByTagName('span')[1].getElementsByTagName('span')[0].innerHTML;
+      let food2 = options[1].getElementsByTagName('span')[1].getElementsByTagName('span')[0].innerHTML;
+      console.log(options[0].getElementsByTagName('span')[1].getElementsByTagName('span')[0].innerHTML);
+      console.log(options[0].getElementsByTagName('span')[3].getElementsByTagName('span')[0].innerHTML);
+      let count1 = (options[0].getElementsByTagName('span')[3].getElementsByTagName('span')[0].innerHTML);
+      let count2 = (options[1].getElementsByTagName('span')[3].getElementsByTagName('span')[0].innerHTML);
+      count1 = parseInt(count1);
+      count2 = parseInt(count2) + 1;
+      (options[1].getElementsByTagName('span')[3].getElementsByTagName('span')[0].innerHTML = count2);
+      var progressBar1 = document.getElementById("pstyle1");
+      progressBar1.style.setProperty('--w', count1);
+      var progressBar2 = document.getElementById("pstyle2");
+      progressBar2.style.setProperty('--w', count2);
+      let data = { "food1": food1, "count1": count1, "food2": food2, "count2": count2 };
+      data = JSON.stringify(data)
+
+      $.ajax({
+        url: `/api/pollDataInfo/${food1}`, // url where to submit the request
+        type: "PUT", // type of action POST || GET
+        data: data, // post data || get data
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+
+
+        success: function (result) {
+          console.log(result);
+
+          // tab of the developer tools
+        },
+        error: function (xhr, resp, text) {
+          console.log(xhr, resp, text);
+        }
+      })
+    })
+    for (let i = 0; i < options.length; i++) {
+      options[i].addEventListener("click", () => {
+
+        for (let j = 0; j < options.length; j++) {
+          if (options[j].classList.contains("selected")) {
+            options[j].classList.remove("selected");
+          }
+        }
+
+        options[i].classList.add("selected");
+
+
+
+        for (let k = 0; k < options.length; k++) {
+
+          options[k].classList.add("selectall");
+        }
+
+        let forVal = options[i].getAttribute("for");
+        let selectInput = document.querySelector("#" + forVal);
+        let getAtt = selectInput.getAttribute("type");
+        if (getAtt == "checkbox") {
+          count1++;
+
+          count.push(count1);
+          //console.log(count[1])
+          //console.log(count[0])
+
+          selectInput.setAttribute("type", "radio");
+        } else if (selectInput.checked == true) {
+          count1--;
+          //console.log(count1)
+          options[i].classList.remove("selected");
+          selectInput.setAttribute("type", "checkbox");
+        }
+
+        let array = [];
+        for (let l = 0; l < options.length; l++) {
+          if (options[l].classList.contains("selected")) {
+
+            array.push(l);
+          }
+        }
+        if (array.length == 0) {
+          for (let m = 0; m < options.length; m++) {
+            options[m].removeAttribute("class");
+          }
+        }
+      });
+    }
+
+    $(document).ready(function () {
+
+
+      $.ajax({
+        url: `/api/pollData/`, // url where to submit the request
+        type: "GET", // type of action POST || GET
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+
+        success: function (result) {
+          console.log(result);
+          let temp_html = `<span id="food1">${result[0]['food1']}</span>`
+          let temp_html1 = `<span id="food2">${result[0]['food2']}</span>`
+          let temp_html2 = `<span id="count1">${result[0]['count1']}</span>`
+          let temp_html3 = `<span id="count2">${result[0]['count2']}</span>`
+          $("#food1").html(temp_html);
+          $("#food2").html(temp_html1);
+          $("#count1").html(temp_html2);
+          $("#count2").html(temp_html3);
+
+
+          // you can see the result from the console
+          // tab of the developer tools
+        },
+        error: function (xhr, resp, text) {
+          console.log(xhr, resp, text);
+        }
+      })
+
+      // click on button submit
+
+    });
+
+
+            // click on button submit
+
+  </script>
+</body>
+
+</html>
