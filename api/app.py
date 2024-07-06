@@ -1,8 +1,8 @@
 from flask import Flask, jsonify, request, render_template, Response, session, redirect
 from flask_restful import Api, Resource
-from database import db, models
-from database.models import User, Admin
-from resources import routes
+from .database import db, models
+from .database.models import User, Admin
+from .resources import routes
 import stripe
 import os
 from werkzeug.utils import secure_filename
@@ -296,4 +296,4 @@ def createPoll():
     return render_template("/Admin/createPoll.html")
    
 if __name__ == '__main__':
-    app.run(debug=True,port=5000)
+    app.run()
