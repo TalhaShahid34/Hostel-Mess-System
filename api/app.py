@@ -6,7 +6,10 @@ from .resources import routes
 import stripe
 import os
 from werkzeug.utils import secure_filename
-
+import logging
+logger = logging.getLogger('werkzeug')
+handler = logging.FileHandler('error.log')
+logger.addHandler(handler)
 domain_url = "https://hostel-mess-main-sjif0mi9m-talha-shahids-projects-75fe2221.vercel.app/"
 
 # Use environment variable for Stripe API key
@@ -294,6 +297,11 @@ def poll():
 @app.route('/createPoll')
 def createPoll(): 
     return render_template("/Admin/createPoll.html")
-   
+
+@app.errorhandler(500)
+def internal_error(error):
+    logger.error(error)
+    return "500 error", 500
+
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
