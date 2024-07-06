@@ -1,0 +1,71 @@
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 339-025-135
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+127.0.0.1 - - [06/Jul/2024 06:47:44] "[35m[1mGET / HTTP/1.1[0m" 500 -
+127.0.0.1 - - [06/Jul/2024 06:47:44] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:47:44] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:47:44] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:47:44] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:47:44] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:47:53] "[35m[1mGET /register HTTP/1.1[0m" 500 -
+127.0.0.1 - - [06/Jul/2024 06:47:53] "GET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:47:53] "GET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:47:53] "GET /register?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:47:53] "GET /register?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:47:53] "GET /register?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 339-025-135
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+127.0.0.1 - - [06/Jul/2024 06:50:11] "GET /register HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:50:11] "[33mGET /static/signup.css HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:50:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:51:36] "POST /api/User HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:51:38] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:51:38] "[33mGET /static/login.css HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:51:51] "POST /login HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:51:51] "[33mGET /static/Student/style.css HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:51:51] "[33mGET /static/img/people.png HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:51:51] "[33mGET /img/Spaghetti.jpeg HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:51:51] "[33mGET /img/chicken.jpeg HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:51:51] "[33mGET /static/Student/script.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:51:52] "GET /api/updateMenu/Saturday HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:51:52] "[33mGET /static/img/surprise.jpg HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:51:52] "[33mGET /static/img/Coffee.png HTTP/1.1[0m" 404 -
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 339-025-135
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+127.0.0.1 - - [06/Jul/2024 06:52:40] "POST /login HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:52:40] "[33mGET /static/Student/style.css HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:52:40] "[33mGET /static/img/people.png HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:52:40] "[33mGET /img/Spaghetti.jpeg HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:52:40] "[33mGET /img/chicken.jpeg HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:52:40] "[33mGET /static/Student/script.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:52:40] "GET /api/updateMenu/Saturday HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:52:40] "[33mGET /static/img/surprise.jpg HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:52:40] "[33mGET /static/img/Coffee.png HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:52:43] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:52:49] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:52:49] "[33mGET /static/Student/style.css HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:52:49] "[33mGET /static/img/people.png HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:52:49] "[33mGET /img/Spaghetti.jpeg HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:52:49] "[33mGET /img/chicken.jpeg HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:52:49] "[33mGET /static/Student/script.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:52:49] "GET /api/updateMenu/Saturday HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:52:49] "[33mGET /static/img/surprise.jpg HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:52:49] "[33mGET /static/img/Coffee.png HTTP/1.1[0m" 404 -
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 339-025-135
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+127.0.0.1 - - [06/Jul/2024 06:53:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:53:36] "GET /static/img/people.png HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:53:36] "GET /static/Student/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:53:36] "[33mGET /img/Spaghetti.jpeg HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:53:36] "[33mGET /img/chicken.jpeg HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Jul/2024 06:53:36] "GET /static/Student/script.js HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:53:37] "GET /api/updateMenu/Saturday HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:53:37] "GET /static/img/surprise.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2024 06:53:37] "GET /static/img/Coffee.png HTTP/1.1" 200 -
